@@ -1,0 +1,10 @@
+## 前言
+- JustKeepGoingV2的server端
+## 技术栈
+- express搭建HTTP服务
+- mongoose连接mongoDB数据库
+- typescript规范
+## 进度
+- mongo连接测试完成，express搭建完成
+  - mongo连接中间件编写
+  - mongo连接池探索
