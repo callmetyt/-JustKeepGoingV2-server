@@ -4,7 +4,11 @@
 - express搭建HTTP服务
 - mongoose连接mongoDB数据库
 - typescript规范
+- morgan输出express日志
 ## 进度
-- mongo连接测试完成，express搭建完成
-  - mongo连接中间件编写
-  - mongo连接池探索
+- mongo连接、操作测试完成
+- focusList基本接口搭建
+  - 查询接口完成
+  - 添加接口完成
+  - 关注下express的errorhandler
+- 后续编写评论等内容时可以关注下mongoose的populate
