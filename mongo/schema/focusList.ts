@@ -6,19 +6,19 @@ const focusListSchema = new Schema<FocusListType>({
     required: [true, "没有填写目的(aim)"],
   },
   startDate: {
-    type: Date,
+    type: Number,
     required: [true, "没有开始时间(startDate)"],
   },
-  focusTime: {
+  endDate: {
     type: Number,
-    required: [true, "没有专注时长(focusTime)"],
+    required: [true, "没有结束时间(endDate)"],
   },
 });
 
 export interface FocusListType {
   aim: string;
-  startDate: Date;
-  focusTime: number;
+  startDate: number;
+  endDate: number;
 }
 
 export default focusListSchema;
