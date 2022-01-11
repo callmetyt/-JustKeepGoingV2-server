@@ -1,12 +1,19 @@
 import express from "express";
+import tokenVerify, { TokenVerifyObj } from "../../middleware/tokenVerify";
 import { focusList } from "../../mongo";
 
 const show = express.Router();
 
-show.get("/show", async (req, res) => {
+// token解析
+show.use(tokenVerify);
+
+show.post("/show", async (req, res) => {
+  const tokenObj = req.body.tokenObj as TokenVerifyObj;
   try {
     const sqlRes = await focusList.find(
-      {},
+      {
+        userName: tokenObj.userName,
+      },
       {
         __v: 0,
       }

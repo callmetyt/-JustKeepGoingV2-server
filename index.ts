@@ -21,6 +21,8 @@ app.use(routerMap.testRoute);
 
 // focusList Router
 app.use("/focusList", routerMap.focusListRoute);
+// users Router
+app.use("/users", routerMap.usersRoute);
 
 app.listen(config.port, () => {
   console.log(`server is running on the port ${config.port}`);
