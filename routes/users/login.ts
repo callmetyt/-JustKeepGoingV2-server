@@ -8,10 +8,17 @@ const login = express.Router();
 
 login.post("/login", async (req, res) => {
   const data: UsersType = req.body;
-  const sqlRes = await users.findOne({
-    userName: data.userName,
-    password: data.password,
-  });
+  const sqlRes = await users.findOne(
+    {
+      userName: data.userName,
+      password: data.password,
+    },
+    {
+      _id: 0,
+      _v: 0,
+      password: 0,
+    }
+  );
 
   if (sqlRes) {
     const token = jwt.sign(
@@ -23,6 +30,7 @@ login.post("/login", async (req, res) => {
     res.json({
       code: 200,
       token,
+      userName: sqlRes.userName,
     });
   } else {
     res.json({

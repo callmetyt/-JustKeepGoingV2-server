@@ -5,6 +5,7 @@ import config from "../config";
 const tokenVerify = express.Router();
 
 export interface TokenVerifyObj {
+  token: string;
   userName: string;
   iat: number;
 }
@@ -12,7 +13,7 @@ export interface TokenVerifyObj {
 tokenVerify.post("*", (req, res, next) => {
   const token = req.body?.token;
   if (token) {
-    let tokenObj: TokenVerifyObj = { userName: "", iat: 0 };
+    let tokenObj: TokenVerifyObj = { userName: "", iat: 0, token };
     try {
       tokenObj = jwt.verify(token, config.jwtSercet) as TokenVerifyObj;
     } catch (e) {
